@@ -24,9 +24,9 @@ export default class ScrollPicker extends Component {
         onValueChange:PropTypes.func,
         renderItem:PropTypes.func,
         highlightColor:PropTypes.string,
-
         itemHeight:PropTypes.number,
         wrapperHeight:PropTypes.number,
+        wrapperStyle: ViewPropTypes.style,
     };
 
     constructor(props){
@@ -55,27 +55,24 @@ export default class ScrollPicker extends Component {
         let {header, footer} = this._renderPlaceHolder();
         let highlightWidth = (this.props.style ? this.props.style.width : 0) || deviceWidth;
         let highlightColor = this.props.highlightColor || '#333';
-        let wrapperStyle = {
+        let defaultWrapperStyle = {
             height:this.wrapperHeight,
             flex:1,
-            backgroundColor:'#fafafa',
             overflow:'hidden',
         };
 
-        let highlightStyle = {
+        let defaultHighlightStyle = {
             position:'absolute',
             top:(this.wrapperHeight - this.itemHeight) / 2,
             height:this.itemHeight,
             width:highlightWidth,
-            borderTopColor:highlightColor,
-            borderBottomColor:highlightColor,
-            borderTopWidth:StyleSheet.hairlineWidth,
-            borderBottomWidth:StyleSheet.hairlineWidth,
         };
 
+        const { wrapperStyle, highlightStyle } = this.props;
+
         return (
-            <View style={wrapperStyle}>
-                <View style={highlightStyle}></View>
+            <View style={[defaultWrapperStyle, wrapperStyle && wrapperStyle]}>
+                <View style={[defaultHighlightStyle, highlightStyle && highlightStyle]}></View>
                 <ScrollView
                     ref={(sview) => { this.sview = sview; }}
                     bounces={false}
@@ -84,6 +81,10 @@ export default class ScrollPicker extends Component {
                     onMomentumScrollEnd={this._onMomentumScrollEnd.bind(this)}
                     onScrollBeginDrag={this._onScrollBeginDrag.bind(this)}
                     onScrollEndDrag={this._onScrollEndDrag.bind(this)}
+                    scrollEventThrottle={16}
+                    snapToAlignment="center"
+                    decelerationRate="fast"
+                    snapToInterval={this.itemHeight}
                 >
                     {header}
                     {this.props.dataSource.map(this._renderItem.bind(this))}
@@ -124,10 +125,10 @@ export default class ScrollPicker extends Component {
         let _y = selectedIndex * h;
         if(_y !== y){
             // using scrollTo in ios, onMomentumScrollEnd will be invoked 
-            if(Platform.OS === 'ios'){
-                this.isScrollTo = true;
-            }
-            this.sview.scrollTo({y:_y});
+            // if(Platform.OS === 'ios'){
+            //     this.isScrollTo = true;
+            // }
+            // this.sview.scrollTo({y:_y});
         }
         if(this.state.selectedIndex === selectedIndex){
             return;
