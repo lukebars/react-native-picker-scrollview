@@ -1,7 +1,7 @@
 {
   "name": "rn-scrollable-picker",
-  "version": "0.1.1",
-  "description": "a pure and smart js picker, highly customizable",
+  "version": "0.1.2",
+  "description": "a pure JS react-native smart picker, highly customizable",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
