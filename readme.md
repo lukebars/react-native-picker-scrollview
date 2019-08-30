@@ -33,6 +33,7 @@ export default class SimpleExample extends Component {
                 selectedIndex={0}
                 itemHeight={ITEM_HEIGHT}
                 highlightColor={'#fff'}
+                wrapperHeight={500}
                 wrapperStyle={{
                     backgroundColor: 'transparent'
                 }}
