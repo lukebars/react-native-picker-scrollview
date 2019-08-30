@@ -47,7 +47,6 @@ export default class ScrollPicker extends Component {
 
     componentWillUnmount(){
         this.timer && clearTimeout(this.timer);
-        Dimensions.removeEventListener('change');
     }
 
     render(){
