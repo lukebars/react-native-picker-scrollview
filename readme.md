@@ -1,6 +1,8 @@
 ## react-native-picker-scrollview
 
-a pure js picker, each option item customizable
+a pure and smart js picker, highly customizable.
+
+auto height detection
 
 ![example](./res/demo.gif)
 
@@ -13,44 +15,61 @@ npm install react-native-picker-scrollview --save
 
 ```jsx
 import React, {Component} from 'react';
-import ScrollPicker from 'react-native-picker-scrollview';
+import ScrollPicker from 'rn-scrollable-picker';
 
 export default class SimpleExample extends Component {
+
+
+    handleClick = (index, options, onValueChange) => {
+        this.sp.scrollToIndex(index);   // select 'c'
+        onValueChange(options[index]);
+    }
 
     render() {
         return(
             <ScrollPicker
                 ref={(sp) => {this.sp = sp}}
-
-                dataSource={[
-                    'a',
-                    'b',
-                    'c',
-                    'd',
-                ]}
+                dataSource={options}
                 selectedIndex={0}
-                itemHeight={50}
-                wrapperHeight={250}
-                highlightColor={'#d8d8d8'}
+                itemHeight={ITEM_HEIGHT}
+                highlightColor={'#fff'}
+                wrapperStyle={{
+                    backgroundColor: 'transparent'
+                }}
                 renderItem={(data, index, isSelected) => {
                     return(
-                        <View>
-                            <Text >{data}</Text>
-                        </View>
+                        <TouchableOpacity 
+                        onPress={() => this.handleClick(index, options, onValueChange)} 
+                        style={{height: ITEM_HEIGHT}}>
+                            <Text style={isSelected ? {
+                                    color: '#fff',
+                                    textAlign: 'center',
+                                    fontSize: 34,
+                                    fontFamily: 'HK Grotesk',
+                                    lineHeight: 50,
+                                    height: 50,
+                                    fontWeight: 'bold'
+                                } : {
+                                    color: '#fff',
+                                    textAlign: 'center',
+                                    fontSize: 20,
+                                    fontFamily: 'HK Grotesk',
+                                    lineHeight: 50,
+                                    height: 50,
+                                    fontWeight: '300'
+                                }}
+                            >
+                                {data}
+                            </Text>
+                        </TouchableOpacity>
                     )
                 }}
                 onValueChange={(data, selectedIndex) => {
-                    //
+                    onValueChange(options[selectedIndex]);
                 }}
             />
-        )
-    }
-
-
-    //
-    someOtherFunc(){
-        this.sp.scrollToIndex(2);   // select 'c'
-        let selectedValue = this.sp.getSelected();  // returns 'c'
+    );
     }
 }
+
 ```

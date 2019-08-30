@@ -12,8 +12,8 @@ import ReactNative, {
 } from 'react-native';
 import PropTypes from 'prop-types';
 
-const deviceWidth = Dimensions.get('window').width;
-const deviceHeight = Dimensions.get('window').height;
+let deviceWidth = Dimensions.get('window').width;
+let deviceHeight = Dimensions.get('window').height;
 
 export default class ScrollPicker extends Component {
 
@@ -25,7 +25,6 @@ export default class ScrollPicker extends Component {
         renderItem:PropTypes.func,
         highlightColor:PropTypes.string,
         itemHeight:PropTypes.number,
-        wrapperHeight:PropTypes.number,
         wrapperStyle: ViewPropTypes.style,
     };
 
@@ -33,7 +32,7 @@ export default class ScrollPicker extends Component {
         super(props);
 
         this.itemHeight = this.props.itemHeight || 30;
-        this.wrapperHeight = this.props.wrapperHeight || (this.props.style ? this.props.style.height : 0) ||this.itemHeight * 5;
+        this.wrapperHeight = this.props.dataSource.length * this.props.itemHeight < deviceHeight ? this.props.dataSource.length * this.props.itemHeight : deviceHeight
 
         this.state = {
             selectedIndex: this.props.selectedIndex || 0
@@ -41,14 +40,26 @@ export default class ScrollPicker extends Component {
     }
 
     componentDidMount(){
+
+        Dimensions.addEventListener('change', () => {
+            this.getScreenDimensions();
+        });
+
         if(this.props.selectedIndex){
             setTimeout(() => {
                 this.scrollToIndex(this.props.selectedIndex);
             }, 0);
         }
     }
+
+    getScreenDimensions = () => {
+        deviceWidth = Dimensions.get('window').width;
+        deviceHeight = Dimensions.get('window').height;
+    }
+
     componentWillUnmount(){
         this.timer && clearTimeout(this.timer);
+        Dimensions.removeEventListener('change');
     }
 
     render(){
@@ -69,6 +80,10 @@ export default class ScrollPicker extends Component {
         };
 
         const { wrapperStyle, highlightStyle } = this.props;
+
+        this.wrapperHeight = this.props.dataSource.length * this.props.itemHeight < deviceHeight ? this.props.dataSource.length * this.props.itemHeight : deviceHeight
+
+        console.log(this.props.itemHeight, this.props.dataSource.lenght, this.wrapperHeight);
 
         return (
             <View style={[defaultWrapperStyle, wrapperStyle && wrapperStyle]}>

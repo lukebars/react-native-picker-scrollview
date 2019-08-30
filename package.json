@@ -1,14 +1,14 @@
 {
-  "name": "react-native-picker-scrollview",
-  "version": "1.0.0",
-  "description": "a pure js picker, each option item customizable",
+  "name": "rn-scrollable-picker",
+  "version": "0.1.1",
+  "description": "a pure and smart js picker, highly customizable",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/veizz/react-native-picker-scrollview.git"
+    "url": "git+https://github.com/lukebars/react-native-picker-scrollview"
   },
   "keywords": [
     "picker",
@@ -18,7 +18,7 @@
   "author": "veizz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/veizz/react-native-picker-scrollview/issues"
+    "url": "https://github.com/lukebars/react-native-picker-scrollview/issues"
   },
-  "homepage": "https://github.com/veizz/react-native-picker-scrollview#readme"
+  "homepage": "https://github.com/lukebars/react-native-picker-scrollview#readme"
 }
