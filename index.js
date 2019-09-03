@@ -66,9 +66,9 @@ export default class ScrollPicker extends Component {
             width:highlightWidth,
         };
 
-        const { wrapperStyle, highlightStyle, dataSource, itemHeight, wrapperHeight } = this.props;
+        const { wrapperStyle, highlightStyle, dataSource, itemHeight, wrapperHeight, fixedHeight } = this.props;
 
-        this.wrapperHeight = dataSource.length * itemHeight < wrapperHeight ? dataSource.length * itemHeight : wrapperHeight
+        this.wrapperHeight = fixedHeight ? wrapperHeight : dataSource.length * itemHeight < wrapperHeight ? dataSource.length * itemHeight : wrapperHeight
 
         return (
             <View style={[defaultWrapperStyle, wrapperStyle && wrapperStyle]}>

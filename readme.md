@@ -13,6 +13,10 @@ auto height detection
 npm install react-native-picker-scrollview --save
 ```
 
+props:
+
+`fixedHeight` - locks scrollable picker wrapper height to given wrapperHeight
+
 ```jsx
 import React, {Component} from 'react';
 import ScrollPicker from 'rn-scrollable-picker';
