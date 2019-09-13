@@ -36,6 +36,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "RafaelMagalhaesN",
+      "name": "Rafael Magalhães",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/10750521?v=4",
+      "profile": "https://www.linkedin.com/in/rafanascmag/",
+      "contributions": [
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7
