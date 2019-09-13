@@ -212,7 +212,7 @@ ScrollPicker.defaultProps = {
         position: 'absolute',
         top: (this.wrapperHeight - this.itemHeight) / 2,
         height: this.itemHeight,
-        width: highlightWidth,
+        width: '100%',
     },
     wrapperStyle: {
         height: this.wrapperHeight,
