@@ -1,5 +1,5 @@
 ## react-native-picker-scrollview
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 
 a pure and smart js picker, highly customizable.
 
@@ -91,6 +91,8 @@ Thanks goes to these wonderful people :shipit:
   <tr>
     <td align="center"><a href="https://github.com/kasinskas"><img src="https://avatars1.githubusercontent.com/u/22332217?v=4" width="64px;" alt="Rokas Kašinskas"/><br /><sub><b>Rokas Kašinskas</b></sub></a><br /><a href="https://github.com/lukebars/rn-scrollable-picker/commits?author=kasinskas" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/lukebars"><img src="https://avatars0.githubusercontent.com/u/46403446?v=4" width="64px;" alt="Lukas Baranauskas"/><br /><sub><b>Lukas Baranauskas</b></sub></a><br /><a href="https://github.com/lukebars/rn-scrollable-picker/commits?author=lukebars" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/veizz"><img src="https://avatars3.githubusercontent.com/u/1176926?v=4" width="64px;" alt="veizz"/><br /><sub><b>veizz</b></sub></a><br /><a href="https://github.com/lukebars/rn-scrollable-picker/commits?author=veizz" title="Code">💻</a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/rafanascmag/"><img src="https://avatars1.githubusercontent.com/u/10750521?v=4" width="64px;" alt="Rafael Magalhães"/><br /><sub><b>Rafael Magalhães</b></sub></a><br /><a href="https://github.com/lukebars/rn-scrollable-picker/commits?author=RafaelMagalhaesN" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
