@@ -1,5 +1,5 @@
 ## rn-scrollable-picker
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)     <a href="https://badge.fury.io/js/rn-scrollable-picker"><img src="https://badge.fury.io/js/rn-scrollable-picker.svg" alt="npm version" height="18"></a>
 
 A pure JS scrollable picker solution for react-native, highly customizable.
 
