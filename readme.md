@@ -1,4 +1,5 @@
 ## react-native-picker-scrollview
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 
 a pure and smart js picker, highly customizable.
 
@@ -78,3 +79,23 @@ export default class SimpleExample extends Component {
 }
 
 ```
+
+## Contributors ✨
+
+Thanks goes to these wonderful people :shipit:
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/kasinskas"><img src="https://avatars1.githubusercontent.com/u/22332217?v=4" width="64px;" alt="Rokas Kašinskas"/><br /><sub><b>Rokas Kašinskas</b></sub></a><br /><a href="https://github.com/lukebars/rn-scrollable-picker/commits?author=kasinskas" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/lukebars"><img src="https://avatars0.githubusercontent.com/u/46403446?v=4" width="64px;" alt="Lukas Baranauskas"/><br /><sub><b>Lukas Baranauskas</b></sub></a><br /><a href="https://github.com/lukebars/rn-scrollable-picker/commits?author=lukebars" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
