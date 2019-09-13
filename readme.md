@@ -46,16 +46,12 @@ export default class SimpleExample extends Component {
                                     color: '#fff',
                                     textAlign: 'center',
                                     fontSize: 34,
-                                    fontFamily: 'HK Grotesk',
-                                    lineHeight: 50,
                                     height: 50,
                                     fontWeight: 'bold'
                                 } : {
                                     color: '#fff',
                                     textAlign: 'center',
                                     fontSize: 20,
-                                    fontFamily: 'HK Grotesk',
-                                    lineHeight: 50,
                                     height: 50,
                                     fontWeight: '300'
                                 }}
