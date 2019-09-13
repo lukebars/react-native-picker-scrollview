@@ -14,10 +14,6 @@ A pure JS scrollable picker solution for react-native, highly customizable.
 npm i rn-scrollable-picker
 ```
 
-### Props
-
-`fixedHeight` - locks scrollable picker wrapper height to given wrapperHeight
-
 ```jsx
 import React, {Component} from 'react';
 import ScrollPicker from 'rn-scrollable-picker';
@@ -37,7 +33,6 @@ export default class SimpleExample extends Component {
                 dataSource={options}
                 selectedIndex={0}
                 itemHeight={ITEM_HEIGHT}
-                highlightColor={'#fff'}
                 wrapperHeight={500}
                 wrapperStyle={{
                     backgroundColor: 'transparent'
@@ -79,6 +74,47 @@ export default class SimpleExample extends Component {
 }
 
 ```
+
+### Props
+
+| Prop                 | Required | Default      | Params type             | Description                         |
+| -------------------- | -------- | ------------ | ----------------------- | ----------------------------------- |
+| dataSource           | yes      |              | Array                   | Picker data                         |
+| wrapperHeight        | yes      |              | Number                  | Picker window height                |
+| renderItem           | no       |              | Function                | Renders picker options              |
+| selectedIndex        | no       | 0            | Number                  | Default selected value              |
+| onValueChange        | no       | () => {}     | Function                | Called on valie change              |
+| highlightStyle       | no       |              | Style array             | Called when epg boundaries are left |
+| wrapperStyle         | no       |              | Style array             | Called when epg boundaries are left |
+| itemHeight           | no       | 30           | Number                  | Picker's single item height         |
+| fixedHeight          | no       | false        | Bool                    | Disable dynamic height calculation  |
+
+### Default styles
+```jsx
+        wrapperStyle = {
+            height: this.wrapperHeight,
+            flex: 1,
+            overflow: 'hidden',
+        },
+        highlightStyle = {
+            position: 'absolute',
+            top: (this.wrapperHeight - this.itemHeight) / 2,
+            height: this.itemHeight,
+            width: highlightWidth,
+        },
+        itemWrapper: {
+            height: 30,
+            justifyContent: 'center',
+            alignItems: 'center',
+        },
+        itemText: {
+            color: '#999',
+        },
+        itemTextSelected: {
+            color: '#333',
+        },
+```
+
 
 ## Contributors ✨
 

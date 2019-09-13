@@ -1,40 +1,27 @@
 
 
 import React, { Component } from 'react';
-import ReactNative, {
+import {
     StyleSheet,
     Text,
     View,
     ScrollView,
-    Dimensions,
     Platform,
     ViewPropTypes
 } from 'react-native';
 import PropTypes from 'prop-types';
 
-
 export default class ScrollPicker extends Component {
-    static propTypes = {
-        style: ViewPropTypes.style,
-        dataSource: PropTypes.array.isRequired,
-        selectedIndex: PropTypes.number,
-        onValueChange: PropTypes.func,
-        renderItem: PropTypes.func,
-        highlightColor: PropTypes.string,
-        itemHeight: PropTypes.number,
-        wrapperStyle: ViewPropTypes.style,
-    };
-
     constructor(props) {
         super(props);
 
-        this.itemHeight = this.props.itemHeight || 30;
+        this.itemHeight = this.props.itemHeight;
         const { dataSource, itemHeight, wrapperHeight, fixedHeight } = props;
 
         this.wrapperHeight = fixedHeight ? wrapperHeight : dataSource.length * itemHeight < wrapperHeight ? dataSource.length * itemHeight : wrapperHeight;
 
         this.state = {
-            selectedIndex: this.props.selectedIndex || 0
+            selectedIndex: this.props.selectedIndex
         };
     }
 
@@ -52,31 +39,15 @@ export default class ScrollPicker extends Component {
 
     render() {
         const { header, footer } = this._renderPlaceHolder();
-        const highlightWidth = (this.props.style ? this.props.style.width : 0) || '100%';
-        const highlightColor = this.props.highlightColor || '#333';
         const {
             wrapperStyle, highlightStyle, dataSource, itemHeight, wrapperHeight, fixedHeight
         } = this.props;
 
         this.wrapperHeight = fixedHeight ? wrapperHeight : dataSource.length * itemHeight < wrapperHeight ? dataSource.length * itemHeight : wrapperHeight;
 
-        const defaultWrapperStyle = {
-            height: this.wrapperHeight,
-            flex: 1,
-            overflow: 'hidden',
-        };
-
-        const defaultHighlightStyle = {
-            position: 'absolute',
-            top: (this.wrapperHeight - this.itemHeight) / 2,
-            height: this.itemHeight,
-            width: highlightWidth,
-        };
-
-
         return (
-            <View style={[defaultWrapperStyle, wrapperStyle && wrapperStyle]}>
-                <View style={[defaultHighlightStyle, highlightStyle && highlightStyle]} />
+            <View style={wrapperStyle}>
+                <View style={highlightStyle} />
                 <ScrollView
                     ref={(sview) => { this.sview = sview; }}
                     bounces={false}
@@ -88,7 +59,7 @@ export default class ScrollPicker extends Component {
                     scrollEventThrottle={16}
                     snapToAlignment="center"
                     decelerationRate="fast"
-                    snapToInterval={this.itemHeight}
+                    snapToInterval={itemHeight}
                 >
                     {header}
                     {this.props.dataSource.map(this._renderItem.bind(this))}
@@ -127,18 +98,17 @@ export default class ScrollPicker extends Component {
             y = e.nativeEvent.contentOffset.y;
         }
         const selectedIndex = Math.round(y / h);
-        const _y = selectedIndex * h;
-        if (_y !== y) {
+        // const _y = selectedIndex * h;
+        // if (_y !== y) {
             // using scrollTo in ios, onMomentumScrollEnd will be invoked
             // if(Platform.OS === 'ios'){
             //     this.isScrollTo = true;
             // }
             // this.sview.scrollTo({y:_y});
-        }
+        // }
         if (this.state.selectedIndex === selectedIndex) {
             return;
         }
-        // onValueChange
         if (this.props.onValueChange) {
             const selectedValue = this.props.dataSource[selectedIndex];
             this.setState({
@@ -219,3 +189,34 @@ let styles = StyleSheet.create({
         color: '#333',
     },
 });
+
+ScrollPicker.propTypes = {
+        style: ViewPropTypes.style,
+        dataSource: PropTypes.array.isRequired,
+        selectedIndex: PropTypes.number,
+        onValueChange: PropTypes.func,
+        renderItem: PropTypes.func,
+        highlightStyle: ViewPropTypes.style,
+        itemHeight: PropTypes.number,
+        wrapperStyle: ViewPropTypes.style,
+        wrapperHeight: PropTypes.height,
+        fixedHeight: PropTypes.bool,
+};
+
+ScrollPicker.defaultProps = {
+    onValueChange: () => {},
+    itemHeight: 30,
+    selectedIndex: 0,
+    fixedHeight: false,
+    highlightStyle: {
+        position: 'absolute',
+        top: (this.wrapperHeight - this.itemHeight) / 2,
+        height: this.itemHeight,
+        width: highlightWidth,
+    },
+    wrapperStyle: {
+        height: this.wrapperHeight,
+        flex: 1,
+        overflow: 'hidden',
+    },
+}
