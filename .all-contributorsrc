@@ -1,0 +1,24 @@
+{
+  "projectName": "rn-scrollable-picker",
+  "projectOwner": "lukebars",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 64,
+  "commit": true,
+  "commitConvention": "eslint",
+  "contributors": [
+    {
+      "login": "kasinskas",
+      "name": "Rokas Kašinskas",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/22332217?v=4",
+      "profile": "https://github.com/kasinskas",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
