@@ -1,20 +1,20 @@
-## react-native-picker-scrollview
+## rn-scrollable-picker
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 
-a pure and smart js picker, highly customizable.
+A pure JS scrollable picker solution for react-native, highly customizable.
 
-auto height detection
+-Auto height detection
 
 ![example](./res/demo.gif)
 
 
-### usage
+### Usage
 
 ```shell
-npm install react-native-picker-scrollview --save
+npm i rn-scrollable-picker
 ```
 
-props:
+### Props
 
 `fixedHeight` - locks scrollable picker wrapper height to given wrapperHeight
 
