@@ -8,7 +8,7 @@ A pure JS scrollable picker solution for react-native, highly customizable.
 ![example](./res/demo.gif)
 
 
-### Usage
+## Usage
 
 ```shell
 npm i rn-scrollable-picker
@@ -71,7 +71,7 @@ export default class SimpleExample extends Component {
 
 ```
 
-### Props
+## Props
 
 | Prop                 | Required | Default      | Params type             | Description                         |
 | -------------------- | -------- | ------------ | ----------------------- | ----------------------------------- |
@@ -86,7 +86,8 @@ export default class SimpleExample extends Component {
 | fixedHeight          | no       | false        | Bool                    | Disable dynamic height calculation  |
 | rotationEnabled      | no       | true         | Bool                    | Auto rotation support which is calling `handleWrapperHeightChange` method  |
 
-### Default styles
+## Default styles
+
 ```jsx
         wrapperStyle = {
             height: this.wrapperHeight,
