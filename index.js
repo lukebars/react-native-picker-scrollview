@@ -47,7 +47,13 @@ export default class ScrollPicker extends Component {
 
         return (
             <View style={wrapperStyle}>
-                <View style={highlightStyle} />
+                <View style={[
+                        {
+                            top: (this.wrapperHeight - this.itemHeight) / 2,
+                            height: this.itemHeight
+                        }, 
+                        highlightStyle
+                    ]} />
                 <ScrollView
                     ref={(sview) => { this.sview = sview; }}
                     bounces={false}
@@ -210,8 +216,6 @@ ScrollPicker.defaultProps = {
     fixedHeight: false,
     highlightStyle: {
         position: 'absolute',
-        top: (this.wrapperHeight - this.itemHeight) / 2,
-        height: this.itemHeight,
         width: '100%',
     },
     wrapperStyle: {

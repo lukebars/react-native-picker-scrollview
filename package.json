@@ -1,6 +1,6 @@
 {
   "name": "rn-scrollable-picker",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "a pure JS react-native smart picker, highly customizable",
   "main": "index.js",
   "scripts": {
