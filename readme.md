@@ -84,6 +84,7 @@ export default class SimpleExample extends Component {
 | wrapperStyle         | no       |              | Style array             | Called when epg boundaries are left |
 | itemHeight           | no       | 30           | Number                  | Picker's single item height         |
 | fixedHeight          | no       | false        | Bool                    | Disable dynamic height calculation  |
+| rotationEnabled      | no       | true         | Bool                    | Auto rotation support which is calling `handleWrapperHeightChange` method  |
 
 ### Default styles
 ```jsx

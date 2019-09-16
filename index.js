@@ -37,16 +37,36 @@ export default class ScrollPicker extends Component {
         this.timer && clearTimeout(this.timer);
     }
 
+    handleWrapperHeightChange = () => {
+        const {
+            dataSource, itemHeight, wrapperHeight, fixedHeight
+        } = this.props;
+
+        const { selectedIndex } = this.state;
+
+        const height = fixedHeight ? wrapperHeight : dataSource.length * itemHeight < wrapperHeight ? dataSource.length * itemHeight : wrapperHeight;
+
+        if (height!==this.wrapperHeight) {
+            this.wrapperHeight = height;
+            this.scrollToIndex(selectedIndex);
+        }
+    }
+
     render() {
         const { header, footer } = this._renderPlaceHolder();
         const {
-            wrapperStyle, highlightStyle, dataSource, itemHeight, wrapperHeight, fixedHeight
+            wrapperStyle, highlightStyle, itemHeight, rotationEnabled
         } = this.props;
 
-        this.wrapperHeight = fixedHeight ? wrapperHeight : dataSource.length * itemHeight < wrapperHeight ? dataSource.length * itemHeight : wrapperHeight;
+        if(rotationEnabled) {
+            this.handleWrapperHeightChange();
+        }
 
         return (
-            <View style={wrapperStyle}>
+            <View style={[
+                    { height: this.wrapperHeight }, 
+                    wrapperStyle
+                ]}>
                 <View style={[
                         {
                             top: (this.wrapperHeight - this.itemHeight) / 2,
@@ -207,6 +227,7 @@ ScrollPicker.propTypes = {
         wrapperStyle: ViewPropTypes.style,
         wrapperHeight: PropTypes.height,
         fixedHeight: PropTypes.bool,
+        rotationEnabled: PropTypes.bool,
 };
 
 ScrollPicker.defaultProps = {
@@ -214,12 +235,12 @@ ScrollPicker.defaultProps = {
     itemHeight: 30,
     selectedIndex: 0,
     fixedHeight: false,
+    rotationEnabled: true,
     highlightStyle: {
         position: 'absolute',
         width: '100%',
     },
     wrapperStyle: {
-        height: this.wrapperHeight,
         flex: 1,
         overflow: 'hidden',
     },
